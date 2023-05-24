@@ -2,7 +2,8 @@ export type Level = {
     title: string;
     color: string;
     icon: "down" | "up";
-    imc: number[]
+    imc: number[],
+    yourImc?: number;
 }
 
 export const levels: Level[] = [
@@ -14,11 +15,15 @@ export const levels: Level[] = [
 
 export const calculateImc = (height: number, weight: number) => {
     const imc = weight / (height * height);
+    let i
+    let levelCopy: Level
 
-    for(const i in levels) {
+    for(i in levels) {
         if(imc >= levels[i].imc[0] &&
-            imc < levels[i].imc[i]) {
-                return levels[i];
+            imc < levels[i].imc[1]) {
+                 levelCopy = { ...levels[i] }
+                levelCopy.yourImc = parseFloat(imc.toFixed(2))
+                return levelCopy;
             }
     }
     return null
