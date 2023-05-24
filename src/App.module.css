@@ -59,6 +59,14 @@ body {
     opacity: .8;
 }
 
+.container .leftSide button:disabled {
+    opacity: .5;
+}
+
+.container .leftSide input:disabled {
+    opacity: .5;
+}
+
 .container .rightSide {
     flex:1;
     margin-left: 40px;
