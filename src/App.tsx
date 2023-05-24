@@ -54,7 +54,7 @@ const App = () => {
               disabled={showItem ? true : false}
             />
 
-            <button onClick={handleCalculateButton}>Calcular</button>
+            <button  disabled={showItem ? true : false} onClick={handleCalculateButton}>Calcular</button>
         </div>
         <div className={styles.rightSide}>
           {!showItem && 
